@@ -1,4 +1,4 @@
-//los Angeles elements from moment
+//Los Angeles elements from moment
 let losAngelesElement = document.querySelector('#los-angeles')
 let losAngelesDateElement = document.querySelector('#los-angeles .date')
 let losAngelesTimeElement = document.querySelector('#los-angeles .time')
@@ -39,4 +39,15 @@ let parisCurrentMeridiem = moment().tz('Europe/Paris').format('A')
 parisTimeElement.innerHTML = `${parisCurrentTime} <span class="small">${parisCurrentMeridiem}</span>`
 parisDateElement.innerHTML = `${parisCurrentDate}`
 
-//toyko elements from moment
+//Tokyo elements from moment
+let tokyoElement = document.querySelector('#tokyo')
+let tokyoDateElement = document.querySelector('#tokyo .date')
+let tokyoTimeElement = document.querySelector('#tokyo .time')
+
+let tokyoCurrentDate = moment().tz('Asia/Tokyo').format('MMMM D, YYYY')
+
+let tokyoCurrentTime = moment().tz('Asia/Tokyo').format('hh:mm')
+let tokyoCurrentMeridiem = moment().tz('Asia/Tokyo').format('A')
+
+tokyoTimeElement.innerHTML = `${tokyoCurrentTime} <span class="small">${tokyoCurrentMeridiem}</span>`
+tokyoDateElement.innerHTML = `${tokyoCurrentDate}`
