@@ -25,3 +25,18 @@ let sydneyCurrentMeridiem = moment().tz('Australia/Sydney').format('A')
 
 sydneyTimeElement.innerHTML = `${sydneyCurrentTime} <span class="small">${sydneyCurrentMeridiem}</span>`
 sydneyDateElement.innerHTML = `${sydneyCurrentDate}`
+
+//Paris elemets from moment
+let parisElement = document.querySelector('#paris')
+let parisDateElement = document.querySelector('#paris .date')
+let parisTimeElement = document.querySelector('#paris .time')
+
+let parisCurrentDate = moment().tz('Europe/Paris').format('MMMM D, YYYY')
+
+let parisCurrentTime = moment().tz('Europe/Paris').format('hh:mm')
+let parisCurrentMeridiem = moment().tz('Europe/Paris').format('A')
+
+parisTimeElement.innerHTML = `${parisCurrentTime} <span class="small">${parisCurrentMeridiem}</span>`
+parisDateElement.innerHTML = `${parisCurrentDate}`
+
+//toyko elements from moment
