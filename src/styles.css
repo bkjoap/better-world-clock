@@ -39,6 +39,7 @@ h2 {
 .city:last-child {
   border-bottom: none;
 }
+
 .time {
   font-size: 36px;
   font-weight: bolder;

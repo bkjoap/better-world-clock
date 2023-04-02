@@ -55,3 +55,25 @@ setInterval(function time() {
   tokyoTimeElement.innerHTML = `${tokyoCurrentTime} <span class="small">${tokyoCurrentMeridiem}</span>`
   tokyoDateElement.innerHTML = `${tokyoCurrentDate}`
 }, 1000)
+
+//change data for selected city
+function updateCity(event) {
+  let timeZone = event.target.value
+  let cityName = timeZone.replace('_', ' ').split('/')[1]
+  let cityCurrentDate = moment().tz(`${timeZone}`).format('MMMM D, YYYY')
+  let cityCurrentTime = moment().tz(`${timeZone}`).format('hh:mm:ss')
+  let cityCurrentMeridiem = moment().tz(`${timeZone}`).format('A')
+  let cityElement = document.querySelector('.allCities')
+  cityElement.innerHTML = ` <div class="city">
+                <div>
+                    <h2>${cityName}</h2>
+                    <div class="date">${cityCurrentDate}</div>
+                </div>
+                <div class="time">${cityCurrentTime} <span class="small">${cityCurrentMeridiem}</span></div>
+            </div>`
+}
+
+let selectedCityElement = document.querySelector('#cities')
+selectedCityElement.addEventListener('change', updateCity)
+
+setInterval(updateCity, 1000)
