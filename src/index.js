@@ -75,7 +75,9 @@ function updateCity(event) {
                     <div class="date">${cityCurrentDate}</div>
                 </div>
                 <div class="time">${cityCurrentTime} <span class="small">${cityCurrentMeridiem}</span></div>
-            </div>`
+            </div>
+            </br>
+            <a href="/">All Cities</a>`
 }
 
 let selectedCityElement = document.querySelector('#cities')
