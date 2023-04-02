@@ -57,8 +57,13 @@ setInterval(function time() {
 }, 1000)
 
 //change data for selected city
+
 function updateCity(event) {
   let timeZone = event.target.value
+  if (timeZone === 'Current') {
+    timeZone = moment.tz.guess()
+  }
+  console.log(timeZone)
   let cityName = timeZone.replace('_', ' ').split('/')[1]
   let cityCurrentDate = moment().tz(`${timeZone}`).format('MMMM D, YYYY')
   let cityCurrentTime = moment().tz(`${timeZone}`).format('hh:mm:ss')
@@ -75,5 +80,3 @@ function updateCity(event) {
 
 let selectedCityElement = document.querySelector('#cities')
 selectedCityElement.addEventListener('change', updateCity)
-
-setInterval(updateCity, 1000)
