@@ -1,5 +1,5 @@
-//Los Angeles elements from moment
 setInterval(function time() {
+  //Los Angeles elements from moment
   let losAngelesElement = document.querySelector('#los-angeles')
   let losAngelesDateElement = document.querySelector('#los-angeles .date')
   let losAngelesTimeElement = document.querySelector('#los-angeles .time')
@@ -16,32 +16,6 @@ setInterval(function time() {
   losAngelesTimeElement.innerHTML = `${losAngelesCurrentTime} <span class="small">${losAngelesCurrentMeridiem}</span>`
   losAngelesDateElement.innerHTML = `${losAngelesCurrentDate}`
 
-  //Sydney elements from moment
-  let sydneyElement = document.querySelector('#sydney')
-  let sydneyDateElement = document.querySelector('#sydney .date')
-  let sydneyTimeElement = document.querySelector('#sydney .time')
-
-  let sydneyCurrentDate = moment().tz('Australia/Sydney').format('MMMM D, YYYY')
-
-  let sydneyCurrentTime = moment().tz('Australia/Sydney').format('hh:mm:ss')
-  let sydneyCurrentMeridiem = moment().tz('Australia/Sydney').format('A')
-
-  sydneyTimeElement.innerHTML = `${sydneyCurrentTime} <span class="small">${sydneyCurrentMeridiem}</span>`
-  sydneyDateElement.innerHTML = `${sydneyCurrentDate}`
-
-  //Paris elemets from moment
-  let parisElement = document.querySelector('#paris')
-  let parisDateElement = document.querySelector('#paris .date')
-  let parisTimeElement = document.querySelector('#paris .time')
-
-  let parisCurrentDate = moment().tz('Europe/Paris').format('MMMM D, YYYY')
-
-  let parisCurrentTime = moment().tz('Europe/Paris').format('hh:mm:ss')
-  let parisCurrentMeridiem = moment().tz('Europe/Paris').format('A')
-
-  parisTimeElement.innerHTML = `${parisCurrentTime} <span class="small">${parisCurrentMeridiem}</span>`
-  parisDateElement.innerHTML = `${parisCurrentDate}`
-
   //Tokyo elements from moment
   let tokyoElement = document.querySelector('#tokyo')
   let tokyoDateElement = document.querySelector('#tokyo .date')
@@ -54,6 +28,21 @@ setInterval(function time() {
 
   tokyoTimeElement.innerHTML = `${tokyoCurrentTime} <span class="small">${tokyoCurrentMeridiem}</span>`
   tokyoDateElement.innerHTML = `${tokyoCurrentDate}`
+
+  //Current elements from moment
+  let currentElement = document.querySelector('#current')
+  let currentDateElement = document.querySelector('#current .date')
+  let currentTimeElement = document.querySelector('#current .time')
+  let currentLocation = moment.tz.guess()
+  let currentCurrentDate = moment()
+    .tz(`${currentLocation}`)
+    .format('MMMM D, YYYY')
+
+  let currentCurrentTime = moment().tz(`${currentLocation}`).format('hh:mm:ss')
+  let currentCurrentMeridiem = moment().tz(`${currentLocation}`).format('A')
+
+  currentTimeElement.innerHTML = `${currentCurrentTime} <span class="small">${currentCurrentMeridiem}</span>`
+  currentDateElement.innerHTML = `${currentCurrentDate}`
 }, 1000)
 
 //change data for selected city
